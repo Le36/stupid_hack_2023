@@ -16,3 +16,7 @@ then
 and to run locally
 
 ```flask run```
+
+
+if you want changes to appear after saving, run with:
+```FLASK_ENV=development flask run```
