@@ -1,4 +1,8 @@
-# Stupid Hack
+# Hack the Stupid Hack
+
+> Stupid Hack 2023 - Game Mod
+
+## Local development
 
 clone first
 
