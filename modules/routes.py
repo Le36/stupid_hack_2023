@@ -14,4 +14,6 @@ def first():
     if request.method == "POST":
         if request.form["SubEmail"] == "google@google.com":
             return "done"
+        if request.form["SubCountry"] == "Hack Me":
+            return "another"
         return "first part of the puzzle"
