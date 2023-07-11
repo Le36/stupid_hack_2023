@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>You R A Winer!</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel="stylesheet" href="/static/styles2.css">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3 award-container">
+            <h1 class="text-center">You R A Winer!</h1>
+            <div class="text-center winner-team">
+                <h2>Team <span id="winner-name">{{name}}</span> has won Stupid Hack 2023!!!</h2>
+            </div>
+            <div class="ribbon">
+                <span>1st</span>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../static/stars.js"></script>
+</body>
+</html>

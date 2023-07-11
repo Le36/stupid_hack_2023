@@ -7,7 +7,8 @@ from app import app
 def index():
     if request.method == "GET":
         return render_template("index.html")
-    
+
+
 @app.errorhandler(Exception)
 def error(error):
     return render_template("error.html")
@@ -25,6 +26,12 @@ def first():
 def winners():
     if request.method == "GET":
         return render_template("winners.html")
+
+
+@app.route("/inputform", methods=["POST"])
+def award():
+    if request.method == "POST":
+        return render_template("award.html", name=request.form["team"])
 
 
 @app.route("/team", methods=["POST", "GET"])
