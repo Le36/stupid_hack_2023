@@ -7,6 +7,10 @@ from app import app
 def index():
     if request.method == "GET":
         return render_template("index.html")
+    
+@app.errorhandler(Exception)
+def error(error):
+    return render_template("error.html")
 
 
 @app.route("/first", methods=["POST", "GET"])
