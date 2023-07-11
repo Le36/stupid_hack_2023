@@ -12,8 +12,6 @@ def index():
 @app.route("/first", methods=["POST", "GET"])
 def first():
     if request.method == "POST":
-        if request.form["SubEmail"] == "google@google.com":
-            return "done"
-        if request.form["SubCountry"] == "Hack Me":
-            return "another"
-        return "first part of the puzzle"
+        if request.form["SubEmail"] == "admin@hackjunction.com" and request.form["SubCountry"] == "Hack Me":
+            return render_template("desktop.html")
+        return render_template("index.html")
