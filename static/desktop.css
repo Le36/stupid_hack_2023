@@ -1,0 +1,499 @@
+@font-face {
+    font-family: base;
+    src: url('SourceCodePro-Regular.ttf.woff2') format('woff2'),
+    url('SourceCodePro-Regular.ttf.woff') format('woff'),
+    url('SourceCodePro-Regular.ttf') format('truetype');
+}
+
+:root {
+    --primary-color: #000000;
+    --secondary-color: #121212;
+    --text-color: #00ff00;
+    --transparent: rgba(0, 255, 0, 0.2);
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    font: 12px/1.2 base, monospace;
+    color: var(--text-color);
+    background: var(--primary-color);
+    user-select: none;
+}
+
+input,
+textarea {
+    user-select: text;
+}
+
+
+input,
+textarea, button, select {
+    background-color: rgba(0, 0, 0, 0);
+    font: 12px/1.2 base, monospace;
+    margin: 0;
+    color: var(--text-color);
+    backdrop-filter: blur(1.5px);
+    border-color: var(--text-color);
+    border-width: 1px;
+    padding: 5px;
+    resize: none;
+}
+
+textarea {
+    scrollbar-color: var(--text-color) var(--primary-color);
+    scrollbar-width: thin;
+}
+
+textarea::-webkit-scrollbar {
+    width: 5px;
+}
+
+textarea::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: var(--primary-color);
+    background-image: -webkit-linear-gradient(top,
+    var(--primary-color) 0%,
+    var(--text-color) 50%,
+    var(--text-color) 51%,
+    var(--primary-color) 100%);
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    color: var(--text-color);
+    box-shadow: 0 0 10px var(--text-color);
+}
+
+input::placeholder {
+    color: var(--text-color);
+}
+
+button {
+    box-shadow: var(--primary-color);
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+button:hover {
+    color: var(--text-color);
+    box-shadow: 0 0 10px var(--text-color);
+}
+
+.startMenuItemLabel {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    padding: 4px;
+    margin-top: 2px;
+}
+
+#desktop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 30px;
+    z-index: 0;
+    background-image: url("/static/res0urc3s/Wx1Vl4YgwA0VQqH4KkIH.gif");
+    background-repeat: repeat;
+    background-size: auto;
+    background-position: left top;
+    background-attachment: fixed;
+    opacity: 1;
+    overflow: hidden;
+}
+
+#taskbar {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 30px;
+    background: var(--secondary-color);
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.window {
+    position: absolute;
+    background-color: var(--primary-color);
+    border: 1px solid var(--text-color);
+    min-width: 200px;
+    min-height: 100px;
+}
+
+.window-titlebar {
+    background-color: var(--secondary-color);
+    border: 1px solid var(--text-color);
+    padding: 4px;
+    cursor: move;
+}
+
+.window-content {
+    padding: 10px;
+}
+
+#startMenuContainer {
+    position: absolute;
+    left: 0;
+    bottom: 0px;
+    height: 30px;
+    z-index: 9999;
+}
+
+#startMenuBtn {
+    height: 100%;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    border: none;
+    cursor: pointer;
+}
+
+#startMenuBtn:focus {
+    outline: 1px solid var(--text-color);
+}
+
+#startMenuBtn:hover {
+    outline: 1px solid var(--text-color);
+    box-shadow: none;
+}
+
+.startMenuItemLabel:hover {
+    outline: 1px solid var(--text-color);
+}
+
+#startMenu {
+    color: var(--primary-color);
+    position: absolute;
+    left: 10px;
+    bottom: 30px;
+    width: 200px;
+    background-color: var(--primary-color);
+    border: 1px solid var(--text-color);
+    z-index: 10000;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: center;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.hidden {
+    display: none;
+}
+
+.minimized {
+    display: none;
+}
+
+#taskbarItems {
+    display: flex;
+    margin-left: 38px;
+}
+
+.taskbarItem {
+    padding: 5px;
+    display: flex;
+    background-color: var(--secondary-color);
+    border: 1px solid var(--text-color);
+    margin-right: 4px;
+    cursor: pointer;
+    max-height: 20px;
+    overflow: hidden;
+}
+
+.taskbarItem:hover {
+    background-color: var(--transparent);
+}
+
+
+.desktopIcon {
+    width: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.desktopIconImage {
+    font-size: 48px;
+}
+
+.desktopIconLabel {
+    text-align: center;
+    margin-top: 4px;
+    font-size: 12px;
+}
+
+#contextMenu {
+    position: absolute;
+    z-index: 10000;
+    background-color: var(--primary-color);
+    border: 1px solid var(--text-color);
+    display: flex;
+    flex-direction: column;
+    width: 150px;
+}
+
+.contextMenuItem {
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+.contextMenuItem:hover {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+}
+
+.hidden {
+    display: none !important;
+}
+
+.draggableSelector {
+    position: absolute;
+    background-color: var(--transparent);
+    border: 1px solid var(--text-color);
+    pointer-events: none;
+    z-index: 0;
+}
+
+select:focus {
+    background: var(--primary-color);
+}
+
+a {
+    color: var(--text-color);
+}
+
+#term {
+    word-wrap: break-word;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 285px;
+    scrollbar-color: var(--text-color) var(--primary-color);
+    scrollbar-width: thin;
+    flex-direction: column-reverse;
+    background: linear-gradient(0deg, var(--primary-color) 0%, var(--secondary-color) 50%, var(--primary-color) 100%);
+}
+
+#term::-webkit-scrollbar {
+    width: 5px;
+}
+
+#term::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: #000000;
+    background-image: -webkit-linear-gradient(top,
+    var(--primary-color) 0%,
+    var(--text-color) 50%,
+    var(--text-color) 51%,
+    var(--primary-color) 100%);
+}
+
+#terminal {
+    border-inline: lime;
+    border-inline-width: 7px;
+    border: 1px solid var(--text-color);
+    min-width: 500px;
+    min-height: 290px;
+    max-width: 500px;
+    max-height: 290px;
+    padding: 3px;
+    background: var(--primary-color);
+}
+
+#input-wrapper {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    align-content: stretch;
+    flex-wrap: wrap;
+    flex-direction: row;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+.prompt {
+    color: var(--text-color);
+    opacity: 0.5;
+}
+
+#input:focus {
+    outline: 0;
+}
+
+
+#input {
+    display: inline;
+    border: none;
+    color: var(--text-color);
+    outline: 0;
+    padding: 1px;
+    margin: 0;
+    min-width: 1px;
+    line-height: 1rem;
+    white-space: pre;
+}
+
+.username, .path {
+    color: var(--text-color);
+}
+
+.input-cursor {
+    display: inline-block;
+    width: 1px;
+    background-color: rgba(0, 255, 0, 0);
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 49% {
+        background-color: var(--text-color);
+    }
+    50%, 100% {
+        background-color: transparent;
+    }
+}
+
+#output {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    max-width: 480px;
+    user-select: text;
+}
+
+.resizer {
+    border-bottom: 10px solid var(--text-color);
+    border-left: 10px solid transparent;
+    cursor: nwse-resize;
+}
+
+#gameBoard {
+    display: grid;
+    grid-template-columns: repeat(12, 30px);
+    grid-template-rows: repeat(12, 30px);
+    grid-gap: 2px;
+    margin: 0 auto;
+    width: 382px;
+    height: 382px;
+    background-color: var(--text-color);
+    border: 2px solid var(--primary-color);
+    padding: 2px;
+}
+
+.cell {
+    width: 30px;
+    height: 30px;
+    background-color: var(--secondary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.unit {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.unit1 {
+    background-color: red;
+}
+
+.unit2 {
+    background-color: #00bc00;
+}
+
+.unit3 {
+    background-color: blue;
+}
+
+#scoreDisplay {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    padding: 0;
+    margin: 1em 0;
+}
+
+#scoreDisplay li {
+    margin: 0 1em;
+}
+
+#browserContent {
+    user-select: text;
+    max-width: 600px;
+}
+
+.file-explorer-item {
+    margin: 1px;
+    border: 1px solid var(--primary-color);
+}
+
+.file-explorer-item:hover {
+    border: 1px solid var(--text-color);
+}
+
+#background-image {
+    position: absolute;
+    width: 512px;
+    height: 512px;
+    background-size: cover;
+    z-index: -1;
+
+}
+
+#text-container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    user-select: none;
+}
+
+#question {
+    max-width: 300px;
+    margin-bottom: 20px;
+    backdrop-filter: blur(1.5px);
+}
+
+#lnd-container {
+    display: flex;
+    flex-direction: column-reverse;
+    text-shadow: 0 0 2px var(--primary-color), 0 0 2px var(--primary-color), 0 0 2px var(--primary-color), 0 0 2px var(--primary-color);
+}
+
+#option1, #option2 {
+    text-shadow: 0 0 2px var(--primary-color), 0 0 2px var(--primary-color), 0 0 2px var(--primary-color), 0 0 2px var(--primary-color);
+}
+
+.image-viewer-image {
+    max-width: 512px;
+    max-height: 512px;
+}
+
+canvas {
+    padding: 10px;
+    margin: 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+canvas.matrix-style {
+    display: block;
+    --bg-color: var(--primary-color);
+    --character-color: var(--text-color);
+    width: 512px;
+    height: 512px;
+}

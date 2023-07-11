@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Junction OS</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel="stylesheet" href="/static/desktop.css">
+</head>
+<body>
+<div id="desktop">
+    <div class="desktopIcon" data-app="settings">
+        <div class="desktopIconImage">🔧</div>
+        <div class="desktopIconLabel">Settings</div>
+    </div>
+    <div class="desktopIcon" data-app="notepad">
+        <div class="desktopIconImage">📝</div>
+        <div class="desktopIconLabel">Notepad</div>
+    </div>
+    <div class="desktopIcon" data-app="terminal">
+        <div class="desktopIconImage">💻</div>
+        <div class="desktopIconLabel">Terminal</div>
+    </div>
+        <div class="desktopIcon" data-app="guide.txt">
+        <div class="desktopIconImage">📄</div>
+        <div class="desktopIconLabel">guide.txt</div>
+    </div>
+    <div id="contextMenu" class="hidden">
+        <div class="contextMenuItem" id="contextMenuOpen">Open</div>
+        <div class="contextMenuItem" id="contextMenuDelete">Delete</div>
+    </div>
+</div>
+<div id="taskbar">
+    <div id="startMenuContainer">
+        <button id="startMenuBtn">Start</button>
+    </div>
+    <div id="taskbarItems"></div>
+    <div id="startMenu" style="display: none;">
+        <div id="startMenuSearch">
+            <input type="text" id="searchInput" placeholder="Search..."/>
+        </div>
+        <div class="startMenuItem" data-app="settings" style="display: flex;">
+            <div class="startMenuItemIcon">🔧</div>
+            <div class="startMenuItemLabel">Settings</div>
+        </div>
+        <div class="startMenuItem" data-app="notepad" style="display: flex;">
+            <div class="startMenuItemIcon">📝</div>
+            <div class="startMenuItemLabel">Notepad</div>
+        </div>
+        <div class="startMenuItem" data-app="terminal" style="display: flex;">
+            <div class="startMenuItemIcon">💻</div>
+            <div class="startMenuItemLabel">Terminal</div>
+        </div>
+    </div>
+</div>
+
+<script src="/static/desktop.js"></script>
+</body>
+</html>
