@@ -15,3 +15,8 @@ def first():
         if request.form["SubEmail"] == "admin@hackjunction.com" and request.form["SubCountry"] == "Hack Me":
             return render_template("desktop.html")
         return render_template("index.html")
+
+@app.route("/team", methods=["POST", "GET"])
+def team():
+    if request.method == "GET":
+        return render_template("team.html")
