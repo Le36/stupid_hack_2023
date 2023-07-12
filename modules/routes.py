@@ -1,4 +1,4 @@
-from flask import request, render_template
+from flask import request, render_template, redirect
 
 from app import app
 
@@ -20,7 +20,7 @@ def first():
         if request.form["SubEmail"] == "admin@hackjunction.com" and request.form["SubCountry"] == "Hack Me":
             return render_template("desktop.html")
         return render_template("index.html")
-
+    return render_template("index.html")
 
 @app.route("/jigjijijkigdjkjkgnjdfnjgfdjnjn", methods=["POST", "GET"])
 def winners():
