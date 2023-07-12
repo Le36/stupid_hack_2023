@@ -10,6 +10,9 @@
 
 Follow the breadcrumbs on our platform and hack your way to achieve the biggest reward - admin access to Junction Database interface.
 
+Link to the app: \
+https://stupidhack-df327b33e4a3.herokuapp.com/
+
 ## Local development
 
 clone first
