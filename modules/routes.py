@@ -22,6 +22,7 @@ def first():
         return render_template("index.html")
     return render_template("index.html")
 
+
 @app.route("/jigjijijkigdjkjkgnjdfnjgfdjnjn", methods=["POST", "GET"])
 def winners():
     if request.method == "GET":
